@@ -47,7 +47,8 @@ public class StackDemo {
         list.removeLast();
         System.out.println(list);
 
-        //LinkedList can be used a stack in single threaded env
+        //LinkedList can be used aa a stack in single threaded env
         //Stack is thread-safe, so we can use stack in multi-thread env. But has legacy design since it extends Vector.
     }
 }
+
