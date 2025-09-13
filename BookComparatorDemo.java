@@ -20,6 +20,21 @@ public class BookComparatorDemo{
             return b2.getYearPublished() - b1.getYearPublished();
         });
 
+        System.out.println("Sorted according to the year published(newest year first): ");
+        for(Book book : books){
+            System.out.println(book);
+        }
+
+        books.sort((Book b1, Book b2)->{
+            if(b2.getRating() - b1.getRating() > 0)
+                return 1;
+            else if(b2.getRating() - b1.getRating() < 0)
+                return -1;
+            else
+                return 0;
+        });
+
+        System.out.println("Sorted according to the ratings: ");
         for(Book book : books){
             System.out.println(book);
         }
