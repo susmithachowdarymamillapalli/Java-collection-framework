@@ -84,5 +84,14 @@ public class HashMapDemo {
 
         //Removing a value from the values Collection will remove the first matching key-value pair from map as well
         System.out.println(map); // {1=Black Widow, 3=Hermoine, 4=Patrick}
+
+        //HashMap allows null as a key
+        map.put(null,"Anonymous Hero");
+        System.out.println(map); //{null=Anonymous Hero, 1=Black Widow, 3=Hermoine, 4=Patrick}
+
+        //HashMap allows null as value as well
+        map.put(null,null);
+        System.out.println(map); // {null=null, 1=Black Widow, 3=Hermoine, 4=Patrick}
     }
 }
+
