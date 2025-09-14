@@ -8,10 +8,12 @@ public class HashMapEqualsHashCodeDemo {
         Person p1 = new Person("Alice",25);
         Person p2 = new Person("Bob",23);
         Person p3 = new Person("Alice",25);
+        Person p4 = new Person(null,23);
 
         //true because the name and id of p1 and p3 are same sine
         // equals() method override
         System.out.println(p1.equals(p3));
+        System.out.println(p4.equals(new Person(null,23)));
 
         map.put(p1,"Engineer");
         map.put(p2,"Designer");
@@ -45,7 +47,8 @@ class Person{
        if(o==null) return false;
        if(this.getClass() != o.getClass()) return false;
        Person person = (Person) o;
-       return this.id == person.getId() && this.getName().equals(person.getName());
+        //using Objects.equals() to make sure to handle NullPointerException
+       return this.id == person.getId() && Objects.equals(this.getName(),person.getName());
     }
 
     @Override
