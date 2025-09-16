@@ -15,7 +15,7 @@ public class LinkedHashMapDemo {
         System.out.println("HashMap....");
         System.out.println(map); // {orange=10, apple=12, pineapple=22, guava=20}
 
-        System.out.println("HashMap entries....");
+        System.out.println("LinkedHashMap entries....");
         printMap(linkedHashMap);
         // orange:10
         // apple:12
@@ -67,3 +67,4 @@ public class LinkedHashMapDemo {
     }
 
 }
+
