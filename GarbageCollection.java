@@ -19,6 +19,26 @@ public class GarbageCollection {
         // Now set the WeakReference itself to null
         phoneWeakReference = null;
         System.out.println("After nulling wrapper: " + phoneWeakReference);
+
+        //Strong Reference to Student
+        Student student = new Student("Harry","171162");
+        System.out.println("Initially Student : " + student);
+
+        //Requesting JVM to do Garbage Collection
+        System.gc();
+
+        //Giving some time for JVM to run GC
+        Thread.sleep(10000);
+
+        /*This will print the object but it won't be null because
+        A strong reference is pointing to the object which will prevent it from GC
+        */
+        System.out.println("After GC Student: " + student);
+
+        //Nulling the object here
+        student = null;
+        //Now this is eligible for GC since no reference is pointing to the object
+        System.out.println("After nulling Student: " + student);
     }
 }
 
@@ -39,3 +59,32 @@ class Phone {
                 '}';
     }
 }
+
+class Student{
+    private String name;
+    private String id;
+
+    Student(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
+}
+
+//OUTPUT
+/*
+Initially (referent): Phone{name='Apple', model='iPhone 16'}
+After GC (referent): null
+WeakReference wrapper: java.lang.ref.WeakReference@452b3a41
+After nulling wrapper: null
+Initially Student : Student{name='Harry', id='171162'}
+After GC Student: Student{name='Harry', id='171162'}
+After nulling Student: null
+ */
